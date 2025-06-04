@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My PortFolio</title>
+    <meta name="description" content="Sprite Nestorial Sisodia - Full Stack Developer Portfolio showcasing web development, Java applications, and software testing expertise">
+    <meta name="keywords" content="Full Stack Developer, Java Developer, Software Testing, Web Development, Portfolio">
+    <meta name="author" content="Sprite Nestorial Sisodia">
+    <meta name="robots" content="index, follow">
+    <title>Sprite Nestorial Sisodia - Full Stack Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <!-- Preload critical assets -->
+    <link rel="preload" href="images/logo.png" as="image">
+    <link rel="preload" href="images/user.png" as="image">
 </head>
 <body>
     <div id="header">
         <div class="container">
-            <nav>
-                <img src="images/logo.png" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            <nav role="navigation" aria-label="Main navigation">
+                <img src="images/logo.png" class="logo" alt="Portfolio Logo">
+                <ul id="sidemenu" role="menu">
+                    <li role="none"><a href="#header" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#about" role="menuitem">About</a></li>
+                    <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()" role="button" aria-label="Close menu" tabindex="0"></i>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <i class="fa-solid fa-bars" onclick="openmenu()" role="button" aria-label="Open menu" tabindex="0"></i>
             </nav>
             <div class="header-text">
                 <p>Full Stack Developer</p>
@@ -46,10 +53,10 @@
                         developing efficient software solutions and eager to contribute technical expertise to innovative projects in software
                         development.</p>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <div class="tab-titles" role="tablist">
+                        <p class="tab-links active-link" onclick="opentab('skills')" role="tab" aria-selected="true" tabindex="0">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')" role="tab" aria-selected="false" tabindex="0">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')" role="tab" aria-selected="false" tabindex="0">Education</p>
                         
                     </div>
                     <div class="tab-contents active-tab" id="skills">
@@ -84,20 +91,21 @@
             <div class="services-list">
                 <div>
                     <i class="fa-solid fa-code"></i>
-                    <h2>Web Design</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, alias tenetur? Rem amet illo eligendi nostrum ad enim dolores, quo quisquam rerum aspernatur iure aut maxime nulla. Veniam, doloremque saepe.</p>
-                    <a href="#">Learn more</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-crop"></i>
-                    <h2>UI/UX Design</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, alias tenetur? Rem amet illo eligendi nostrum ad enim dolores, quo quisquam rerum aspernatur iure aut maxime nulla. Veniam, doloremque saepe.</p>
+                    <h2>Full Stack Development</h2>
+                    <p>As a Full Stack Developer, I offer end-to-end solutions for web and application development, covering both front-end and back-end technologies. I have experience with a wide range of modern web technologies, enabling me to build dynamic, user-friendly websites and robust server-side applications.</p>
                     <a href="#">Learn more</a>
                 </div>
                 <div>
                     <i class="fa-brands fa-app-store"></i>
-                    <h2>App Design</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, alias tenetur? Rem amet illo eligendi nostrum ad enim dolores, quo quisquam rerum aspernatur iure aut maxime nulla. Veniam, doloremque saepe.</p>
+                    <h2>App Development by JAVA</h2>
+                    <p>With extensive experience in Java development, I provide reliable and efficient solutions for building enterprise-grade applications, mobile apps, and system-level software. Java's versatility and robustness make it an ideal choice for a wide range of projects, and I specialize in leveraging its full potential to create scalable and high-performance systems.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    
+                    <i class="fa-solid fa-crop"></i>
+                    <h2>Software Testing</h2>
+                    <p>As part of my software testing services, I ensure the quality, reliability, and performance of your applications through comprehensive testing strategies. I specialize in both manual and automated testing, using industry-standard tools and methodologies to identify bugs, performance issues, and security vulnerabilities before they reach your users.</p>
                     <a href="#">Learn more</a>
                 </div>
             </div>
@@ -109,25 +117,25 @@
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="images/work-1.png">
+                    <img src="images/work-1.png" alt="Student Management System">
                     <div class="layer">
-                        <h3>Social Media Apps</h3>
-                        <p>This app lets you connect to the talented peoples</p>
+                        <h3>Student Management System</h3>
+                        <p>A comprehensive system for managing student records, attendance, grades, and course information.</p>
+                        <a href="student-management.html"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-2.png" alt="House Price Predictor">
+                    <div class="layer">
+                        <h3>House Price Predictor</h3>
+                        <p>A Machine Learning project that is used to predict the prices of the house based on the given features.</p>
                         <a href="#"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
                 <div class="work">
-                    <img src="images/work-2.png">
+                    <img src="images/work-3.png" alt="Social Media App">
                     <div class="layer">
-                        <h3>Social Media Apps</h3>
-                        <p>This app lets you connect to the talented peoples</p>
-                        <a href="#"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/work-3.png">
-                    <div class="layer">
-                        <h3>Social Media Apps</h3>
+                        <h3>Social Media App</h3>
                         <p>This app lets you connect to the talented peoples</p>
                         <a href="#"><i class="fa-solid fa-link"></i></a>
                     </div>
@@ -142,8 +150,8 @@
             <div class="row">
                 <div class="contact-left">
                     <h1 class="sub-title">Contact Me</h1>
-                    <p> <i class="fa-solid fa-paper-plane"></i>contact@sprite.com</p>
-                    <p> <i class="fa-solid fa-phone"></i>7451932209</p>
+                    <p> <i class="fa-solid fa-paper-plane"></i>spritepersonal1109@gmail.com</p>
+                    <p> <i class="fa-solid fa-phone"></i>+91 7451932209</p>
                     <div class="social-icons">
                         <a href="#"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/sprite-nestorial-sisodia-41390b262/"><i class="fa-brands fa-linkedin"></i></a>
@@ -153,69 +161,136 @@
                     <a href="images/myresume.pdf" download class="btn btn2">Download Resume</a>
                 </div>
                 <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
+                    <form name="submit-to-google-sheet" role="form" aria-label="Contact form">
+                        <input type="text" name="Name" placeholder="Your Name" required aria-label="Your Name">
+                        <input type="email" name="Email" placeholder="Your Email" required aria-label="Your Email">
+                        <textarea name="Message" rows="6" placeholder="Your Message" aria-label="Your Message"></textarea>
+                        <button type="submit" class="btn btn2" aria-label="Submit form">Submit</button>
                     </form>
                     <span id="msg"></span>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright @Sprite Nestorial Sisodia</p>
+            <p>Copyright ©2025 SPRITE NESTORIAL SISODIA </p>
         </div>
     </div>
     <script>
+        // Performance optimization: Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Tab functionality with keyboard support
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link")
+        
+        function opentab(tabname, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            
+            for(let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+                tablink.setAttribute("aria-selected", "false");
             }
 
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab")
+            for(let tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
             }
 
-            event.currentTarget.classList.add("active-link");
+            const currentTab = event ? event.currentTarget : document.querySelector(`[onclick="opentab('${tabname}')"]`);
+            currentTab.classList.add("active-link");
+            currentTab.setAttribute("aria-selected", "true");
             document.getElementById(tabname).classList.add("active-tab");
         }
-    </script>
 
-    <script>
+        // Add keyboard support for tabs
+        document.querySelectorAll('.tab-links').forEach(tab => {
+            tab.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const tabname = tab.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    opentab(tabname, e);
+                }
+            });
+        });
+
+        // Mobile menu functionality
         var sidemenu = document.getElementById("sidemenu");
+        const menuOpenButton = document.querySelector('.fa-bars');
+        const menuCloseButton = document.querySelector('.fa-xmark');
 
-        function openmenu(){
-            sidemenu.style.right = "0"
+        function openmenu() {
+            sidemenu.style.right = "0";
+            menuOpenButton.style.display = "none";
+            menuCloseButton.style.display = "block";
         }
 
-        function closemenu(){
-            sidemenu.style.right = "-200px"
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+            menuOpenButton.style.display = "block";
+            menuCloseButton.style.display = "none";
         }
+
+        // Add click event listeners
+        menuOpenButton.addEventListener('click', openmenu);
+        menuCloseButton.addEventListener('click', closemenu);
+
+        // Add keyboard support for menu buttons
+        menuOpenButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openmenu();
+            }
+        });
+
+        menuCloseButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closemenu();
+            }
+        });
+
+        // Form submission with loading state
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMfiZ2YhVMMVmP6mdOZcGPgAwP8VhkEx_-LSwBo0HtSwkbHrbbr2WZlJ_AsNha5R40xw/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg");
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully";
+                    msg.style.color = "green";
+                    setTimeout(() => {
+                        msg.innerHTML = "";
+                    }, 5000);
+                    form.reset();
+                })
+                .catch(error => {
+                    msg.innerHTML = "Error sending message. Please try again.";
+                    msg.style.color = "red";
+                    console.error('Error!', error.message);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit';
+                });
+        });
     </script>
-
-
-  
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxMfiZ2YhVMMVmP6mdOZcGPgAwP8VhkEx_-LSwBo0HtSwkbHrbbr2WZlJ_AsNha5R40xw/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
 
     
 </body>

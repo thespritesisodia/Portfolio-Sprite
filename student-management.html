@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System - Project Details</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <style>
+        .project-details {
+            padding: 80px 10%;
+            color: #ababab;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .project-header h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .project-content {
+            background: #262626;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .project-content h2 {
+            color: #ff004f;
+            margin-bottom: 20px;
+        }
+        .project-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .tech-stack span {
+            background: #ff004f;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #ff004f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .github-link:hover {
+            background: #b54769;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .back-button i {
+            margin-right: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "•";
+            color: #ff004f;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        .repo-structure {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .repo-structure pre {
+            margin: 0;
+            color: #fff;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-details">
+        <div class="project-header">
+            <h1>Student Management System</h1>
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i>Back to Portfolio</a>
+        </div>
+        
+        <div class="project-content">
+            <h2>Project Overview</h2>
+            <p>The Student Management System is a comprehensive full-stack web application designed to streamline the management of student records within educational institutions. It facilitates functionalities such as adding, updating, deleting, and viewing student information through a user-friendly interface. This project was developed during GLAU@HackSpace 2.0 hackathon conducted by GLA UNIVERSITY, where our team secured the runner-up position.</p>
+            
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li><strong>Student Record Management:</strong> Create, read, update, and delete (CRUD) operations for student data, including personal details and academic information.</li>
+                <li><strong>Responsive Design:</strong> Ensures usability across various devices with a responsive frontend layout.</li>
+                <li><strong>Modular Architecture:</strong> Structured codebase separating frontend and backend concerns for maintainability.</li>
+            </ul>
+
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Frontend</span>
+                <span>Backend</span>
+                <span>Database</span>
+            </div>
+
+            <h2>Repository Structure</h2>
+            <div class="repo-structure">
+                <pre>
+student-management-system/
+├── frontend/          # Client-side code for user interface
+├── backend/           # Server-side logic and API endpoints
+└── template/          # Template files for the application
+                </pre>
+            </div>
+
+            <h2>Development Timeline</h2>
+            <p>Project Duration: GLAU@HackSpace 2.0 Hackathon</p>
+            <p>Role: Backend Developer & Team Leader</p>
+            <p>Achievement: Runner-up Position</p>
+
+            <h2>Challenges & Solutions</h2>
+            <p>One of the major challenges was implementing real-time attendance tracking. This was solved by creating a robust API system that could handle multiple concurrent requests and maintain data consistency.</p>
+
+            <a href="https://github.com/thespritesisodia/student-management-system" class="github-link" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

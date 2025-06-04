@@ -19,8 +19,27 @@ body{
     width: 100%;
     height: 100vh;
     background-image: url(images/background.png);
-    background-size: cover;
-    background-position: center;
+    background-size: 35% auto;
+    background-position: 600% center;
+    background-repeat: no-repeat;
+    background-color: #080808;
+    position: relative;
+}
+
+#header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.7));
+    z-index: 1;
+}
+
+#header .container {
+    position: relative;
+    z-index: 2;
 }
 
 .container{
@@ -36,6 +55,18 @@ nav{
 
 .logo{
     width: 140px;
+    transition: transform 0.3s ease;
+    filter: brightness(1.2) contrast(1.1) hue-rotate(340deg) saturate(2);
+    border-radius: 10px;
+    padding: 5px;
+    background: rgba(255, 0, 79, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 0, 79, 0.2);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 0, 79, 0.3);
+    filter: brightness(1.3) contrast(1.2) hue-rotate(340deg) saturate(2.5);
 }
 
 nav ul li{
@@ -367,32 +398,28 @@ form .btn2{
     margin-top: 20px;
 }
 
-nav.fa-solid{
+nav .fa-solid {
     display: none;
-
 }
 
-@media only screen and(max-width: 600px){
-    #header{
+@media only screen and (max-width: 600px) {
+    #header {
         background-image: url(images/phone-background.png);
     }
-    .header-text{
+    .header-text {
         margin-top: 100%;
         font-size: 16px;
     }
-    .header-text h1{
+    .header-text h1 {
         font-size: 30px;
-
     }
-
-    nav.fa-solid{
+    nav .fa-solid {
         display: block;
         font-size: 25px;
-    
+        cursor: pointer;
     }
-
-    nav ul{
-        background-color: #ff004f;
+    nav ul {
+        background: #ff004f;
         position: fixed;
         top: 0;
         right: -200px;
@@ -400,16 +427,13 @@ nav.fa-solid{
         height: 100vh;
         padding-top: 50px;
         z-index: 2;
-        transition:  right 0.5s;
+        transition: right 0.5s;
     }
-
-    nav ul li{
+    nav ul li {
         display: block;
         margin: 25px;
-
     }
-
-    nav ul.fa-solid{
+    nav ul .fa-xmark {
         position: absolute;
         top: 25px;
         left: 25px;
