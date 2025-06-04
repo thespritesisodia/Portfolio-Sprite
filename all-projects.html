@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <style>
+        .projects-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        .projects-header h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .back-button i {
+            margin-right: 10px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px 10%;
+        }
+        .project-card {
+            background: #262626;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 20px;
+        }
+        .project-info h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .project-info p {
+            color: #ababab;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff004f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .project-link:hover {
+            background: #b54769;
+        }
+    </style>
+</head>
+<body>
+    <div class="projects-header">
+        <h1>All Projects</h1>
+        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i>Back to Portfolio</a>
+    </div>
+
+    <div class="projects-grid">
+        <!-- Student Management System -->
+        <div class="project-card">
+            <img src="images/work-1.png" alt="Student Management System" class="project-image">
+            <div class="project-info">
+                <h3>Student Management System</h3>
+                <p>A comprehensive system for managing student records, attendance, grades, and course information.</p>
+                <a href="student-management.html" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- House Price Predictor -->
+        <div class="project-card">
+            <img src="images/work-2.png" alt="House Price Predictor" class="project-image">
+            <div class="project-info">
+                <h3>House Price Predictor</h3>
+                <p>A Machine Learning project that is used to predict the prices of the house based on the given features.</p>
+                <a href="house-price-predictor.html" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- TrueMatch -->
+        <div class="project-card">
+            <img src="images/work-4.png" alt="TrueMatch" class="project-image">
+            <div class="project-info">
+                <h3>TrueMatch</h3>
+                <p>A modern matchmaking platform frontend built with React for finding compatible profiles.</p>
+                <a href="truematch.html" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- Electricity Management System -->
+        <div class="project-card">
+            <img src="images/work-5.png" alt="Electricity Management System" class="project-image">
+            <div class="project-info">
+                <h3>Electricity Management System</h3>
+                <p>An Electricity Management Web Portal Designed with Java for efficient power distribution.</p>
+                <a href="#" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- Apna Gaaon -->
+        <div class="project-card">
+            <img src="images/work-6.png" alt="Apna Gaaon" class="project-image">
+            <div class="project-info">
+                <h3>Apna Gaaon</h3>
+                <p>A Web Application cum NGO Portal designed with MERN STACK for rural development.</p>
+                <a href="#" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- TrueNews -->
+        <div class="project-card">
+            <img src="images/work-7.png" alt="TrueNews" class="project-image">
+            <div class="project-info">
+                <h3>TrueNews</h3>
+                <p>A news aggregation platform with real-time updates and personalized content delivery.</p>
+                <a href="#" class="project-link">View Details</a>
+            </div>
+        </div>
+
+        <!-- Nimoria Power -->
+        <div class="project-card">
+            <img src="images/work-8.png" alt="Nimoria Power" class="project-image">
+            <div class="project-info">
+                <h3>Nimoria Power</h3>
+                <p>A comprehensive power management solution for industrial applications.</p>
+                <a href="#" class="project-link">View Details</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
