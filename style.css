@@ -19,10 +19,10 @@ body{
     width: 100%;
     height: 100vh;
     background-image: url(images/background.png);
-    background-size: 35% auto;
-    background-position: 600% center;
+    background-size: 50% auto;
+    background-position: right center;
     background-repeat: no-repeat;
-    background-color: #080808;
+    background-color: transparent;
     position: relative;
 }
 
@@ -33,7 +33,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(8, 8, 8, 0.9), rgba(8, 8, 8, 0.7));
+    background: linear-gradient(to right, rgba(8, 8, 8, 0.8), rgba(8, 8, 8, 0.4));
     z-index: 1;
 }
 
@@ -445,6 +445,28 @@ nav .fa-solid {
     color: #61b752;
     margin-top: -40px;
     display: block;
+}
+
+.work.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.work.hidden.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#seeMoreBtn {
+    transition: all 0.3s ease;
+}
+
+#seeMoreBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 79, 0.3);
 }
 
 
