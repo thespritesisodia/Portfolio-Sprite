@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueMatch - Project Details</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <style>
+        .project-details {
+            padding: 80px 10%;
+            color: #ababab;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .project-header h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .project-content {
+            background: #262626;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .project-content h2 {
+            color: #ff004f;
+            margin-bottom: 20px;
+        }
+        .project-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .tech-stack span {
+            background: #ff004f;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #ff004f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .github-link:hover {
+            background: #b54769;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .back-button i {
+            margin-right: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "•";
+            color: #ff004f;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        .component-structure {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .component-structure pre {
+            color: #fff;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-details">
+        <div class="project-header">
+            <h1>TrueMatch</h1>
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i>Back to Portfolio</a>
+        </div>
+        
+        <div class="project-content">
+            <h2>Project Overview</h2>
+            <p>TrueMatch is a modern matchmaking platform frontend built with React that enables users to find compatible profiles based on preferences and interests. This project focuses on creating an engaging and responsive user interface with smooth navigation and dynamic content rendering.</p>
+            
+            <h2>Key Highlights</h2>
+            <ul class="feature-list">
+                <li><strong>User Interface:</strong> Designed clean, intuitive, and responsive UI components for user profiles, search filters, and match suggestions.</li>
+                <li><strong>React Framework:</strong> Utilized React functional components and hooks for state management and side effects to ensure a seamless user experience.</li>
+                <li><strong>Routing:</strong> Implemented client-side routing using React Router to navigate between different pages smoothly.</li>
+                <li><strong>API Integration Ready:</strong> Structured the frontend to easily connect with backend APIs for fetching and posting user data.</li>
+                <li><strong>Styling:</strong> Applied CSS modules for modular, maintainable styles.</li>
+                <li><strong>Performance:</strong> Optimized rendering and component updates for fast load times and better interactivity.</li>
+            </ul>
+
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>CSS Modules</span>
+                <span>React Router</span>
+                <span>React Hooks</span>
+                <span>Git</span>
+            </div>
+
+            <h2>Project Structure</h2>
+            <div class="component-structure">
+                <pre>
+src/
+├── components/
+│   ├── Profile/
+│   ├── Search/
+│   ├── Matches/
+│   └── Navigation/
+├── pages/
+│   ├── Home/
+│   ├── Profile/
+│   ├── Search/
+│   └── Matches/
+├── hooks/
+├── context/
+├── utils/
+└── styles/
+                </pre>
+            </div>
+
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li>User profile creation and management</li>
+                <li>Advanced search filters and preferences</li>
+                <li>Real-time match suggestions</li>
+                <li>Responsive design for all devices</li>
+                <li>Secure authentication system</li>
+                <li>Interactive user interface</li>
+            </ul>
+
+            <h2>Development Timeline</h2>
+            <p>Project Duration: 3 months</p>
+            <p>Role: Frontend Developer</p>
+
+            <h2>Challenges & Solutions</h2>
+            <p>One of the major challenges was implementing efficient state management across multiple components. This was solved using React Context API and custom hooks. Another challenge was optimizing the performance of the search functionality, which was addressed through debouncing and memoization techniques.</p>
+
+            <a href="https://github.com/thespritesisodia/truematch" class="github-link" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

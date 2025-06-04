@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor - Project Details</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <style>
+        .project-details {
+            padding: 80px 10%;
+            color: #ababab;
+        }
+        .project-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .project-header h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .project-content {
+            background: #262626;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .project-content h2 {
+            color: #ff004f;
+            margin-bottom: 20px;
+        }
+        .project-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .tech-stack span {
+            background: #ff004f;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #ff004f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .github-link:hover {
+            background: #b54769;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .back-button i {
+            margin-right: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "•";
+            color: #ff004f;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        .workflow-steps {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .workflow-steps ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #fff;
+        }
+        .workflow-steps li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-details">
+        <div class="project-header">
+            <h1>House Price Predictor</h1>
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i>Back to Portfolio</a>
+        </div>
+        
+        <div class="project-content">
+            <h2>Project Overview</h2>
+            <p>This project demonstrates a complete machine learning workflow to predict house prices based on various features such as location, size, number of rooms, and more. Using Python and popular data science libraries, the project involves data cleaning, exploratory data analysis (EDA), feature engineering, model building, and evaluation.</p>
+            
+            <h2>Key Highlights</h2>
+            <ul class="feature-list">
+                <li><strong>Data Preprocessing:</strong> Handled missing values, encoded categorical variables, and normalized features to prepare the dataset for modeling.</li>
+                <li><strong>Exploratory Data Analysis (EDA):</strong> Used visualizations and statistical methods to understand data distribution and feature relationships.</li>
+                <li><strong>Model Development:</strong> Built regression models including Linear Regression, Random Forest Regressor, and Gradient Boosting Regressor to find the best predictor.</li>
+                <li><strong>Model Evaluation:</strong> Compared models using metrics like RMSE (Root Mean Squared Error) to select the most accurate one.</li>
+                <li><strong>Prediction:</strong> Developed a final model to predict house prices, supporting real estate decision-making.</li>
+            </ul>
+
+            <h2>Technologies Used</h2>
+            <div class="tech-stack">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Matplotlib</span>
+                <span>Seaborn</span>
+                <span>Scikit-learn</span>
+                <span>Jupyter Notebook</span>
+            </div>
+
+            <h2>Project Workflow</h2>
+            <div class="workflow-steps">
+                <ol>
+                    <li>Data Collection and Initial Analysis</li>
+                    <li>Data Cleaning and Preprocessing</li>
+                    <li>Exploratory Data Analysis</li>
+                    <li>Feature Engineering</li>
+                    <li>Model Selection and Training</li>
+                    <li>Model Evaluation and Optimization</li>
+                    <li>Final Model Deployment</li>
+                </ol>
+            </div>
+
+            <h2>Development Timeline</h2>
+            <p>Project Duration: 2 months</p>
+            <p>Role: Machine Learning Engineer</p>
+
+            <h2>Challenges & Solutions</h2>
+            <p>One of the major challenges was handling missing data and outliers in the dataset. This was solved by implementing robust data cleaning techniques and using appropriate imputation methods. Another challenge was feature selection, which was addressed through correlation analysis and feature importance ranking.</p>
+
+            <a href="https://github.com/thespritesisodia/house-price-predictor" class="github-link" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</body>
+</html> 
