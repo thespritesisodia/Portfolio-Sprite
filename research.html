@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Learning Journal - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d012505186.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #ff004f;
+            --bg-color: #1a1a1a;
+            --card-bg: #262626;
+            --text-color: #fff;
+            --text-secondary: #ababab;
+            --border-color: #333;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .research-header {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(45deg, #1a1a1a, #262626);
+        }
+
+        .research-header h1 {
+            font-size: 40px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: var(--primary-color);
+        }
+
+        .back-button i {
+            margin-right: 10px;
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .problems-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .problems-table th,
+        .problems-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .problems-table th {
+            background: var(--primary-color);
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .problems-table tr:hover {
+            background: #2d2d2d;
+            cursor: pointer;
+        }
+
+        .problem-link {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .problem-link:hover {
+            color: var(--primary-color);
+        }
+
+        .difficulty {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .difficulty.easy {
+            background: #00b8a3;
+            color: white;
+        }
+
+        .difficulty.medium {
+            background: #ffc01e;
+            color: black;
+        }
+
+        .difficulty.hard {
+            background: #ff375f;
+            color: white;
+        }
+
+        .problem-detail {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .problem-detail.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .problem-title {
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        .problem-content {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .challenges-section,
+        .learnings-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            color: var(--text-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #333;
+            color: var(--text-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin-right: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            color: #d4d4d4;
+        }
+
+        .submission-info {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .submission-date {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .submission-date i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        .submission-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .stat i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        .solution-stats {
+            margin-top: 15px;
+            padding: 15px;
+            background: #1e1e1e;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .solution-stats p {
+            margin: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        .solution-stats strong {
+            color: var(--text-color);
+        }
+
+        .intuition-text, .approach-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .leetcode-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .leetcode-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .leetcode-btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 79, 0.3);
+        }
+
+        .leetcode-btn i {
+            font-size: 16px;
+        }
+
+        .streak-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .streak-icon {
+            background: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .streak-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .streak-icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .streak-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid var(--primary-color);
+        }
+
+        .streak-tooltip {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 250px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .streak-counter:hover .streak-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .tooltip-content h4 {
+            color: var(--text-color);
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .tooltip-content p {
+            color: var(--text-secondary);
+            margin: 0 0 15px 0;
+            font-size: 14px;
+        }
+
+        .days-count {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .streak-calendar {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .calendar-day {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+            background: #1e1e1e;
+            border-radius: 5px;
+            color: var(--text-secondary);
+        }
+
+        .calendar-day.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @keyframes flame {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .streak-icon i {
+            animation: flame 2s infinite;
+        }
+
+        .problem-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .problem-number span {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .platform-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .platform-logo:hover {
+            transform: scale(1.2);
+        }
+
+        /* Platform-specific colors for hover effects */
+        .platform-logo[title="LeetCode"]:hover {
+            box-shadow: 0 0 8px rgba(255, 161, 22, 0.6);
+        }
+
+        .platform-logo[title="HackerRank"]:hover {
+            box-shadow: 0 0 8px rgba(43, 197, 94, 0.6);
+        }
+
+        /* Add more platform-specific styles as needed */
+    </style>
+</head>
+<body>
+    <div class="research-header">
+        <h1>Research & Learning Journal</h1>
+        <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i>Back to Portfolio</a>
+        <div class="streak-counter" id="streakCounter">
+            <div class="streak-icon">
+                <i class="fas fa-fire"></i>
+                <span class="streak-count">1</span>
+            </div>
+            <div class="streak-tooltip">
+                <div class="tooltip-content">
+                    <h4>Current Streak</h4>
+                    <p>You've been solving problems for <span class="days-count">1</span> days!</p>
+                    <div class="streak-calendar">
+                        <div class="calendar-day active">Today</div>
+                        <div class="calendar-day">Tomorrow</div>
+                        <div class="calendar-day">Day 3</div>
+                        <div class="calendar-day">Day 4</div>
+                        <div class="calendar-day">Day 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="research-container">
+        <table class="problems-table">
+            <thead>
+                <tr>
+                    <th>Problem #</th>
+                    <th>Title</th>
+                    <th>Difficulty</th>
+                    <th>Date Solved</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="showProblemDetail('climbing-stairs')">
+                    <td>
+                        <div class="problem-number">
+                            <span>70</span>
+                            <img src="https://leetcode.com/favicon.ico" alt="LeetCode" class="platform-logo" title="LeetCode">
+                        </div>
+                    </td>
+                    <td><a href="#" class="problem-link">Climbing Stairs</a></td>
+                    <td><span class="difficulty easy">Easy</span></td>
+                    <td>March 15, 2024</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="climbing-stairs" class="problem-detail">
+            <div class="problem-header">
+                <h2 class="problem-title">70. Climbing Stairs</h2>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            
+            <div class="problem-content">
+                <div class="submission-info">
+                    <p class="submission-date"><i class="fas fa-clock"></i> Posted on LeetCode: June 7, 2025 at 9:20 PM</p>
+                    <p class="submission-stats">
+                        <span class="stat"><i class="fas fa-check-circle"></i> Accepted</span>
+                        <span class="stat"><i class="fas fa-tachometer-alt"></i> Runtime: 0ms</span>
+                        <span class="stat"><i class="fas fa-code"></i> Language: Java</span>
+                    </p>
+                </div>
+
+                <h3>Problem Description</h3>
+                <p>You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
+
+                <div class="challenges-section">
+                    <h3 class="section-title">My Intuition</h3>
+                    <p class="intuition-text">"It was bad like I was totally on brute force method, only able to pass two test cases."</p>
+                </div>
+
+                <div class="learnings-section">
+                    <h3 class="section-title">My Approach</h3>
+                    <p class="approach-text">"Approach I kept in my mind was different, but then I remembered the fibonacci series, it was the same thing."</p>
+
+                    <h4>My Solution</h4>
+                    <div class="code-block">
+                        <pre><code>class Solution {
+    public int climbStairs(int n) {
+        if(n<=2){
+            return n;
+        }
+        int secondstep = 2;
+        int firststep = 1;
+        int zerostep = 0;
+        for(int i=3; i<=n; i++){
+            zerostep = secondstep + firststep;
+            firststep = secondstep;
+            secondstep = zerostep;
+        }
+        return zerostep;
+    }
+}</code></pre>
+                    </div>
+                    <div class="solution-stats">
+                        <p><strong>Time Complexity:</strong> O(n)</p>
+                        <p><strong>Space Complexity:</strong> O(1)</p>
+                        <p><strong>Runtime:</strong> 0ms</p>
+                    </div>
+
+                    <div class="leetcode-link">
+                        <a href="https://leetcode.com/problems/climbing-stairs/solutions/6826675/climb-stairs-solution-by-sprite-sisodia-yjzty/" target="_blank" class="leetcode-btn">
+                            <i class="fas fa-external-link-alt"></i> Click here to see my LeetCode solution
+                        </a>
+                    </div>
+                </div>
+
+                <div class="entry-tags">
+                    <span class="tag">Dynamic Programming</span>
+                    <span class="tag">Fibonacci</span>
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showProblemDetail(problemId) {
+            // Hide all problem details
+            document.querySelectorAll('.problem-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Show selected problem detail
+            const selectedProblem = document.getElementById(problemId);
+            if (selectedProblem) {
+                selectedProblem.classList.add('active');
+                // Scroll to the problem detail
+                selectedProblem.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Streak counter functionality
+        function updateStreak() {
+            const today = new Date();
+            const lastSolved = localStorage.getItem('lastSolvedDate');
+            const currentStreak = parseInt(localStorage.getItem('currentStreak')) || 0;
+            
+            if (lastSolved) {
+                const lastDate = new Date(lastSolved);
+                const diffDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 1) {
+                    // Consecutive day
+                    localStorage.setItem('currentStreak', currentStreak + 1);
+                    localStorage.setItem('lastSolvedDate', today.toISOString());
+                } else if (diffDays > 1) {
+                    // Streak broken
+                    localStorage.setItem('currentStreak', 1);
+                    localStorage.setItem('lastSolvedDate', today.toISOString());
+                }
+            } else {
+                // First time solving
+                localStorage.setItem('currentStreak', 1);
+                localStorage.setItem('lastSolvedDate', today.toISOString());
+            }
+            
+            // Update the display
+            const streakCount = document.querySelector('.streak-count');
+            const daysCount = document.querySelector('.days-count');
+            const newStreak = parseInt(localStorage.getItem('currentStreak'));
+            
+            streakCount.textContent = newStreak;
+            daysCount.textContent = newStreak;
+            
+            // Update calendar
+            const calendarDays = document.querySelectorAll('.calendar-day');
+            calendarDays.forEach((day, index) => {
+                if (index < newStreak) {
+                    day.classList.add('active');
+                } else {
+                    day.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize streak counter
+        document.addEventListener('DOMContentLoaded', updateStreak);
+
+        // Function to get platform logo URL
+        function getPlatformLogo(platform) {
+            const platformLogos = {
+                'leetcode': 'https://leetcode.com/favicon.ico',
+                'hackerrank': 'https://www.hackerrank.com/favicon.ico',
+                'codeforces': 'https://codeforces.com/favicon.ico',
+                'geeksforgeeks': 'https://www.geeksforgeeks.org/favicon.ico',
+                // Add more platforms as needed
+            };
+            return platformLogos[platform.toLowerCase()] || '';
+        }
+
+        // Function to add a new problem with platform logo
+        function addProblem(number, title, platform, difficulty, date) {
+            const tbody = document.querySelector('.problems-table tbody');
+            const tr = document.createElement('tr');
+            tr.onclick = () => showProblemDetail(title.toLowerCase().replace(/\s+/g, '-'));
+            
+            tr.innerHTML = `
+                <td>
+                    <div class="problem-number">
+                        <span>${number}</span>
+                        <img src="${getPlatformLogo(platform)}" alt="${platform}" class="platform-logo" title="${platform}">
+                    </div>
+                </td>
+                <td><a href="#" class="problem-link">${title}</a></td>
+                <td><span class="difficulty ${difficulty.toLowerCase()}">${difficulty}</span></td>
+                <td>${date}</td>
+            `;
+            
+            tbody.appendChild(tr);
+        }
+    </script>
+</body>
+</html> 
