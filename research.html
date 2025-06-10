@@ -67,7 +67,20 @@
             margin-top: 20px;
             background: var(--card-bg);
             border-radius: 10px;
-            overflow: hidden;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .problems-table thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .problems-table tbody {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
         }
 
         .problems-table th,
@@ -75,6 +88,7 @@
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
+            word-wrap: break-word;
         }
 
         .problems-table th {
@@ -435,6 +449,89 @@
         }
 
         /* Add more platform-specific styles as needed */
+
+        /* Mobile-friendly adjustments */
+        @media screen and (max-width: 768px) {
+            .research-header h1 {
+                font-size: 28px;
+                padding: 0 20px;
+            }
+
+            .research-container {
+                padding: 20px 10px;
+            }
+
+            .problems-table th,
+            .problems-table td {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .problem-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .problem-title {
+                font-size: 20px;
+            }
+
+            .problem-content {
+                font-size: 14px;
+            }
+
+            .code-block {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .tag {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+
+            .difficulty {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .problem-detail {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            /* Adjust table columns for mobile */
+            .problems-table th:nth-child(3),
+            .problems-table td:nth-child(3) {
+                display: none;
+            }
+
+            .problems-table th:nth-child(4),
+            .problems-table td:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .research-header h1 {
+                font-size: 24px;
+            }
+
+            .problems-table th,
+            .problems-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .platform-logo {
+                width: 16px;
+                height: 16px;
+            }
+        }
     </style>
 </head>
 <body>
