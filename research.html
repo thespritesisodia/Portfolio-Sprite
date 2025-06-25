@@ -561,13 +561,7 @@
                 <div class="tooltip-content">
                     <h4>Current Streak</h4>
                     <p>You've been solving problems for <span class="days-count">1</span> days!</p>
-                    <div class="streak-calendar">
-                        <div class="calendar-day active">Today</div>
-                        <div class="calendar-day">Tomorrow</div>
-                        <div class="calendar-day">Day 3</div>
-                        <div class="calendar-day">Day 4</div>
-                        <div class="calendar-day">Day 5</div>
-                    </div>
+                    <div class="streak-calendar" id="streakCalendar"></div>
                 </div>
             </div>
         </div>
@@ -593,7 +587,18 @@
                     </td>
                     <td><a href="#" class="problem-link">Climbing Stairs</a></td>
                     <td><span class="difficulty easy">Easy</span></td>
-                    <td>March 15, 2024</td>
+                    <td>June 15, 2025</td>
+                </tr>
+                <tr onclick="showProblemDetail('min-cost-climbing-stairs')">
+                    <td>
+                        <div class="problem-number">
+                            <span>746</span>
+                            <img src="https://leetcode.com/favicon.ico" alt="LeetCode" class="platform-logo" title="LeetCode">
+                        </div>
+                    </td>
+                    <td><a href="#" class="problem-link">Min Cost Climbing Stairs</a></td>
+                    <td><span class="difficulty easy">Easy</span></td>
+                    <td>June 25, 2025</td>
                 </tr>
             </tbody>
         </table>
@@ -661,6 +666,64 @@
                 <div class="entry-tags">
                     <span class="tag">Dynamic Programming</span>
                     <span class="tag">Fibonacci</span>
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="min-cost-climbing-stairs" class="problem-detail">
+            <div class="problem-header">
+                <h2 class="problem-title">746. Min Cost Climbing Stairs</h2>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="problem-content">
+                <div class="submission-info">
+                    <p class="submission-date"><i class="fas fa-clock"></i> Posted on LeetCode: June 22, 2025 at 7:00 PM</p>
+                    <p class="submission-stats">
+                        <span class="stat"><i class="fas fa-check-circle"></i> Accepted</span>
+                        <span class="stat"><i class="fas fa-tachometer-alt"></i> Runtime: --</span>
+                        <span class="stat"><i class="fas fa-code"></i> Language: Java</span>
+                    </p>
+                </div>
+                <h3>Problem Description</h3>
+                <p>Given an array cost where cost[i] is the cost of i-th step on a staircase, once you pay the cost, you can either climb one or two steps. Find the minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
+                <div class="challenges-section">
+                    <h3 class="section-title">My Intuition</h3>
+                    <p class="intuition-text">A little bit confused mind regarding to see a brutal force approach.</p>
+                </div>
+                <div class="learnings-section">
+                    <h3 class="section-title">My Approach</h3>
+                    <p class="approach-text">Top to bottom approach of getting the cost to reach on the top.</p>
+                    <h4>My Solution</h4>
+                    <div class="code-block">
+                        <pre><code>class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length; // length of the array
+        int [] minCost = new int[n+1]; // the dp array, where n+1 shows the top. if the length of the array is 4 then the top value will be 5.
+        for(int i=2; i<=n; i++){
+          minCost[i]=
+            Math.min( // we will find the min value from the 2nd index towards downside. 
+                (cost[i-1]+minCost[i-1]),
+                (cost[i-2]+minCost[i-2])
+            );
+        }
+        return minCost[n];
+    }
+}</code></pre>
+                    </div>
+                    <div class="solution-stats">
+                        <p><strong>Time Complexity:</strong> O(n)</p>
+                        <p><strong>Space Complexity:</strong> O(n)</p>
+                        <p><strong>Runtime:</strong> --</p>
+                    </div>
+                    <div class="leetcode-link">
+                        <a href="https://leetcode.com/problems/min-cost-climbing-stairs/solutions/6883310/min-cost-climbing-stairs-leetcode-746-by-ytjb/" target="_blank" class="leetcode-btn">
+                            <i class="fas fa-external-link-alt"></i> Click here to see my LeetCode solution
+                        </a>
+                    </div>
+                </div>
+                <div class="entry-tags">
+                    <span class="tag">Dynamic Programming</span>
                     <span class="tag">Java</span>
                 </div>
             </div>
@@ -772,6 +835,61 @@
             
             tbody.appendChild(tr);
         }
+
+        // Replace the old streak calendar logic with a real June 2025 calendar
+        function renderStreakCalendar() {
+            const calendarContainer = document.getElementById('streakCalendar');
+            if (!calendarContainer) return;
+            calendarContainer.innerHTML = '';
+
+            // Get all solved dates from the table
+            const solvedDates = Array.from(document.querySelectorAll('.problems-table tbody tr td:last-child'))
+                .map(td => td.textContent.trim())
+                .filter(date => date.match(/June \d{1,2}, 2025/));
+            // Extract day numbers
+            const solvedDays = solvedDates.map(date => parseInt(date.match(/June (\d{1,2}), 2025/)[1], 10));
+
+            // June 2025 starts on Sunday (0), has 30 days
+            const daysInMonth = 30;
+            const firstDay = new Date(2025, 5, 1).getDay(); // 0=Sunday
+            const weeks = [];
+            let week = [];
+
+            // Fill initial empty days
+            for (let i = 0; i < firstDay; i++) week.push('');
+            for (let day = 1; day <= daysInMonth; day++) {
+                week.push(day);
+                if (week.length === 7) {
+                    weeks.push(week);
+                    week = [];
+                }
+            }
+            if (week.length) weeks.push(week);
+
+            // Render calendar as a table
+            let html = '<table class="calendar-table"><thead><tr>';
+            html += ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<th>${d}</th>`).join('');
+            html += '</tr></thead><tbody>';
+            for (const w of weeks) {
+                html += '<tr>';
+                for (const d of w) {
+                    if (!d) {
+                        html += '<td></td>';
+                    } else {
+                        const active = solvedDays.includes(d) ? 'active' : '';
+                        html += `<td class="calendar-day ${active}">${d}</td>`;
+                    }
+                }
+                html += '</tr>';
+            }
+            html += '</tbody></table>';
+            calendarContainer.innerHTML = html;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStreak();
+            renderStreakCalendar();
+        });
     </script>
 </body>
 </html> 
