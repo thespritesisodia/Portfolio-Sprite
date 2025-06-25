@@ -51,7 +51,7 @@
             </nav>
             <div class="header-text">
                 <p>Full Stack Developer</p>
-                <h1>Hi, I am <span>SPRITE NESTORIAL SISODIA</span><br> from Mathura</h1>
+                <h1><span id="typed-headline"></span></h1>
             </div>
         </div>
     </div>
@@ -194,6 +194,7 @@
             <p>Copyright ©2025 SPRITE NESTORIAL SISODIA </p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         // Performance optimization: Debounce function
         function debounce(func, wait) {
@@ -308,6 +309,27 @@
                     submitButton.disabled = false;
                     submitButton.textContent = 'Submit';
                 });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('typed-headline')) {
+                new Typed('#typed-headline', {
+                    strings: [
+                        'Hi, I am <span style="color:#ff004f">SPRITE NESTORIAL SISODIA</span> from Mathura',
+                        'Full Stack Developer',
+                        'Java Enthusiast',
+                        'AI-ML Explorer'
+                    ],
+                    typeSpeed: 45,
+                    backSpeed: 30,
+                    backDelay: 1200,
+                    startDelay: 400,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|',
+                    smartBackspace: true
+                });
+            }
         });
     </script>
 
