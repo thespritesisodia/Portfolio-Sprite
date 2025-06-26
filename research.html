@@ -600,6 +600,17 @@
                     <td><span class="difficulty easy">Easy</span></td>
                     <td>June 25, 2025</td>
                 </tr>
+                <tr onclick="showProblemDetail('fibonacci-number')">
+                    <td>
+                        <div class="problem-number">
+                            <span>509</span>
+                            <img src="https://leetcode.com/favicon.ico" alt="LeetCode" class="platform-logo" title="LeetCode">
+                        </div>
+                    </td>
+                    <td><a href="#" class="problem-link">Fibonacci Number</a></td>
+                    <td><span class="difficulty easy">Easy</span></td>
+                    <td>June 26, 2025</td>
+                </tr>
             </tbody>
         </table>
 
@@ -723,6 +734,101 @@
                     </div>
                 </div>
                 <div class="entry-tags">
+                    <span class="tag">Dynamic Programming</span>
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="fibonacci-number" class="problem-detail">
+            <div class="problem-header">
+                <h2 class="problem-title">509. Fibonacci Number</h2>
+                <span class="difficulty easy">Easy</span>
+            </div>
+            <div class="problem-content">
+                <div class="submission-info">
+                    <p class="submission-date"><i class="fas fa-clock"></i> Posted on LeetCode: June 27, 2025</p>
+                    <p class="submission-stats">
+                        <span class="stat"><i class="fas fa-check-circle"></i> Accepted</span>
+                        <span class="stat"><i class="fas fa-code"></i> Language: Java</span>
+                    </p>
+                </div>
+                <h3>Problem Description</h3>
+                <p>The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,<br>F(0) = 0, F(1) = 1<br>F(n) = F(n - 1) + F(n - 2), for n > 1.</p>
+                <div class="solution-toggle">
+                    <button class="solution-btn active" onclick="showFibSolution(1, this)">Solution 1</button>
+                    <button class="solution-btn" onclick="showFibSolution(2, this)">Solution 2</button>
+                </div>
+                <div id="fib-solution-1" class="fib-solution-content active">
+                    <div class="challenges-section">
+                        <h3 class="section-title">My Intuition</h3>
+                        <p class="intuition-text">First I know the base conditions and the recursion approach.</p>
+                    </div>
+                    <div class="learnings-section">
+                        <h3 class="section-title">My Approach</h3>
+                        <p class="approach-text">Recursion</p>
+                        <h4>My Solution</h4>
+                        <div class="code-block">
+                            <pre><code>class Solution {
+    public int fib(int n) {
+        if(n<=1){ // base condition
+            return n;
+        }
+        return fib (n-1)+fib (n-2);
+    }
+}</code></pre>
+                        </div>
+                        <div class="solution-stats">
+                            <p><strong>Time Complexity:</strong> Very large</p>
+                            <p><strong>Space Complexity:</strong> Donno</p>
+                        </div>
+                        <div class="leetcode-link">
+                            <a href="https://leetcode.com/problems/fibonacci-number/solutions/6889054/fibonacci-with-extreme-time-complexity-brute-force/" target="_blank" class="leetcode-btn">
+                                <i class="fas fa-external-link-alt"></i> Click here to see my LeetCode solution
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="fib-solution-2" class="fib-solution-content" style="display:none;">
+                    <div class="challenges-section">
+                        <h3 class="section-title">My Intuition</h3>
+                        <p class="intuition-text">Mapping concept</p>
+                    </div>
+                    <div class="learnings-section">
+                        <h3 class="section-title">My Approach</h3>
+                        <p class="approach-text">First make an array, store the values of first and second index, add them and return the value</p>
+                        <h4>My Solution</h4>
+                        <div class="code-block">
+                            <pre><code>class Solution {
+    public int fib(int n) {
+        if(n<=1){ // base condition
+            return n;
+        }
+        // initialize our memoization map.
+        int[] map = new int[n+1]; // an array to store our values.
+        // putting/writing the value of the first and the second index of our array.
+        map[0]=0;
+        map[1]=1;
+        for(int i=2; i<=n; i++){
+            map[i]=map[i-1]+map[i-2]; // now this does not check by recursion method only the last two values are added for the answer.
+        }
+        return map[n];
+    }
+}</code></pre>
+                        </div>
+                        <div class="solution-stats">
+                            <p><strong>Time Complexity:</strong> O(n) -- Linear Time Complexity</p>
+                            <p><strong>Space Complexity:</strong> O(n)</p>
+                        </div>
+                        <div class="leetcode-link">
+                            <a href="https://leetcode.com/problems/fibonacci-number/solutions/6889081/fibonacci-with-linear-time-complexity-using-dynamic-programming/" target="_blank" class="leetcode-btn">
+                                <i class="fas fa-external-link-alt"></i> Click here to see my LeetCode solution
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="entry-tags">
+                    <span class="tag">Recursion</span>
                     <span class="tag">Dynamic Programming</span>
                     <span class="tag">Java</span>
                 </div>
@@ -890,6 +996,13 @@
             updateStreak();
             renderStreakCalendar();
         });
+
+        function showFibSolution(num, btn) {
+            document.querySelectorAll('.solution-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('fib-solution-1').style.display = num === 1 ? 'block' : 'none';
+            document.getElementById('fib-solution-2').style.display = num === 2 ? 'block' : 'none';
+        }
     </script>
 </body>
 </html> 
