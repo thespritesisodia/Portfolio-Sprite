@@ -611,6 +611,17 @@
                     <td><span class="difficulty easy">Easy</span></td>
                     <td>June 26, 2025</td>
                 </tr>
+                <tr onclick="showProblemDetail('frog-jump')">
+                    <td>
+                        <div class="problem-number">
+                            <span>403</span>
+                            <img src="https://leetcode.com/favicon.ico" alt="LeetCode" class="platform-logo" title="LeetCode">
+                        </div>
+                    </td>
+                    <td><a href="#" class="problem-link">Frog Jump</a></td>
+                    <td><span class="difficulty hard">Hard</span></td>
+                    <td>June 27, 2025</td>
+                </tr>
             </tbody>
         </table>
 
@@ -830,6 +841,64 @@
                 <div class="entry-tags">
                     <span class="tag">Recursion</span>
                     <span class="tag">Dynamic Programming</span>
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="frog-jump" class="problem-detail">
+            <div class="problem-header">
+                <h2 class="problem-title">403. Frog Jump</h2>
+                <span class="difficulty hard">Hard</span>
+            </div>
+            <div class="problem-content">
+                <div class="submission-info">
+                    <p class="submission-date"><i class="fas fa-clock"></i> Posted on LeetCode: June 27, 2025</p>
+                    <p class="submission-stats">
+                        <span class="stat"><i class="fas fa-check-circle"></i> Accepted</span>
+                        <span class="stat"><i class="fas fa-code"></i> Language: Java</span>
+                    </p>
+                </div>
+                <h3>Problem Description</h3>
+                <p>Given a list of stones' positions in sorted ascending order, determine if the frog can cross the river by landing on the last stone. The frog can jump k-1, k, or k+1 units from its last jump of k units, and must start by jumping 1 unit from the first stone.</p>
+                <div class="challenges-section">
+                    <h3 class="section-title">My Intuition</h3>
+                    <p class="intuition-text">Dynamic programming with a 2D state to track possible jumps from each stone.</p>
+                </div>
+                <div class="learnings-section">
+                    <h3 class="section-title">My Approach</h3>
+                    <p class="approach-text">Use a 2D boolean DP array where dp[i][k] is true if the frog can reach stone i with a jump of k units. Iterate through all stones and possible jumps to fill the DP table.</p>
+                    <h4>My Solution</h4>
+                    <div class="code-block">
+                        <pre><code>class Solution {
+    public boolean canCross(int[] stones) {
+        int N = stones.length;
+        boolean[][] dp = new boolean[N][N + 1];
+        dp[0][1] = true;
+        
+        for(int i = 1; i < N; ++i){
+            for(int j = 0; j < i; ++j){
+                int diff = stones[i] - stones[j];
+                if(diff < 0 || diff > N || !dp[j][diff]) continue;
+                dp[i][diff] = true;
+                if(diff - 1 >= 0) dp[i][diff - 1] = true;
+                if(diff + 1 <= N) dp[i][diff + 1] = true;
+                if(i == N - 1) return true;
+            }
+        }
+
+        return false;
+    }
+}</code></pre>
+                    </div>
+                    <div class="solution-stats">
+                        <p><strong>Time Complexity:</strong> O(N^2)</p>
+                        <p><strong>Space Complexity:</strong> O(N^2)</p>
+                    </div>
+                </div>
+                <div class="entry-tags">
+                    <span class="tag">Dynamic Programming</span>
+                    <span class="tag">2D DP</span>
                     <span class="tag">Java</span>
                 </div>
             </div>
