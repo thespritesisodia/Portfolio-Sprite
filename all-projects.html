@@ -84,6 +84,51 @@
         .project-link:hover {
             background: #b54769;
         }
+        .project-detail {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #262626;
+            border-radius: 10px;
+            padding: 30px;
+            color: #fff;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            width: 800px;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+        .project-detail h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .project-detail p {
+            color: #ababab;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .project-detail ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .project-detail li {
+            color: #ababab;
+            margin-bottom: 10px;
+        }
+        .project-detail button {
+            background: #ff004f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .project-detail button:hover {
+            background: #b54769;
+        }
     </style>
 </head>
 <body>
@@ -162,6 +207,27 @@
                 <a href="#" class="project-link">View Details</a>
             </div>
         </div>
+        <!-- Blogging Platform -->
+        <div class="project-card" onclick="showProjectDetail('blogging-platform')">
+            <img src="https://raw.githubusercontent.com/thespritesisodia/BloggingPF/main/blogging-platform/public/bloggingpf-cover.png" alt="Blogging Platform" class="project-image" onerror="this.src='images/logo.png'">
+            <div class="project-info">
+                <h3>Blogging Platform – Personal Blog & Admin Panel</h3>
+                <p>A full-stack blogging platform for personal use. Admin-only publishing, public blog viewing, dark/light mode, modern UI/UX, and mobile-friendly design.</p>
+                <a href="blogging-platform.html" class="project-link">View Details</a>
+            </div>
+        </div>
     </div>
 </body>
+<script>
+    function showProjectDetail(id) {
+        document.querySelectorAll('.project-detail').forEach(d => d.style.display = 'none');
+        const detail = document.getElementById(id);
+        if (detail) detail.style.display = 'block';
+        window.scrollTo({ top: detail.offsetTop - 40, behavior: 'smooth' });
+    }
+    function closeProjectDetail(id) {
+        const detail = document.getElementById(id);
+        if (detail) detail.style.display = 'none';
+    }
+</script>
 </html> 
